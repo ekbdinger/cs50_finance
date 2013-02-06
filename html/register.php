@@ -22,9 +22,17 @@
         }
         
         // inserts a user into the database
-        query("INSERT INTO users (username, hash, cash) VALUES(?, ?, 10000.00)", $_POST["username"], crypt($_POST["password"]));
+        $query = query("INSERT INTO users (username, hash, cash) VALUES(?, ?, 10000.00)", $_POST["username"], crypt($_POST["password"]));
         
-        // will want to indicate that they successfully registered
+        // indicate if the query fails, duplicate username for example
+        if ( $query === false)
+        {
+            apologize("username already exists");
+        }
+        
+        // will want to indicate that they successfully registered, redirect to index.php
+        // find out what id the last user who registered is
+        
          
     }
    
