@@ -9,13 +9,22 @@
     {
         // TODO
         
+        // verify that something is entered in all of the fields
         if ( empty($_POST["username"]) || empty($_POST["password"]) || empty($_POST["confirmation"]) )
         {
-        apologize("please fill out all of the fields");
+            apologize("please fill out all of the fields");
+        }
+        
+        // verify that password == confirmation
+        if ( $_POST["password"] != $_POST["confirmation"] )
+        {
+            apologize("Your password and password confirmation do not match");
         }
         
         // inserts a user into the database
         query("INSERT INTO users (username, hash, cash) VALUES(?, ?, 10000.00)", $_POST["username"], crypt($_POST["password"]));
+        
+        // will want to indicate that they successfully registered
          
     }
    
