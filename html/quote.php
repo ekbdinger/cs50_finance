@@ -11,6 +11,13 @@
      // Store the data inputted in quote_form.php ina  variable
      $stock = lookup($_POST["symbol"]);
      
+     $foo = $stock['symbol'];
+     echo $foo;
+     
+      redirect("quote_output.php" ); 
+      // stopping here, the redirect is not working.  Check it later
+        
+     
      // if the lookup succeeds, then redirect the user to the page with the information
      // redirect("quote_output.php" );
      
