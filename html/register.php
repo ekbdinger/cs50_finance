@@ -30,21 +30,32 @@
             apologize("username already exists");
         }
         
-        // will want to indicate that they successfully registered, redirect to index.php
+    // going to try removing this to see if th works
+// will want to indicate that they successfully registered, redirect to index.php
         
         // find out what id the last user who registered is
         $rows = query("SELECT LAST_INSERT_ID() AS id"); 
         $id = $rows[0]["id"];
         
-        // If registration succeeds, you might as well log the new user in (as by "remembering" that id in $_SESSION), thereafter redirecting to index.php
-        // not sure if this is doing anything or not
-        if ( $id = session(id) )
+        // remember the session id during redirection
+        $fred = session_id();
+
+        if ( session_id() == $fred )
         {
-            // render("index.php", ["title" => "index"]);  // not sure if this is the right syntax
-            redirect("index.php");    
+             $_SESSION["id"] = $fred;
+             redirect("index.php" );   
         }
-                
+  
+        // error checking
+        echo "session id";
+        $foo = session_id();
+        echo $foo;
+        echo " <br/>";  
+        echo $id;
+        
     }
+    
+   
    
     // I'm assuming that this is basically if something goes wrong do this
     else
