@@ -39,6 +39,8 @@
         // else apologize
         apologize("Invalid username and/or password.");
     }
+    
+    // ok this makes sense now.  It checks all these other things.  Otherwise it opens this page
     else
     {
         // else render form
