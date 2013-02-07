@@ -30,9 +30,6 @@
             apologize("username already exists");
         }
         
-    // going to try removing this to see if th works
-// will want to indicate that they successfully registered, redirect to index.php
-        
         // find out what id the last user who registered is
         $rows = query("SELECT LAST_INSERT_ID() AS id"); 
         $id = $rows[0]["id"];
