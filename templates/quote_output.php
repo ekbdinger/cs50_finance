@@ -1,5 +1,19 @@
 <?php
-// this will take the quote submitted in quote_form.php and generate the current stock price ?>
+// this will take the quote submitted in quote_form.php and generate the current stock price.  These are some of my initial attempts
+   // <?php echo $stock["symbol"] ; 
+   //  <?php echo $stock ; 
+   // so it's not working
+   // how do I pass the variable $stock from quote.php to quote_output.php
+   /*
+    <?php if (isset($stock)): ?>
+        <p>the stock is:  <?= htmlspecialchars($stock) ?> </p>
+        <?php else: ?>
+        <p>The stock variable didn't output correctly</p>
+        <?php endif ?>
+        
+        */
+   
+      ?>
 
 <!DOCTYPE html>
 
@@ -16,6 +30,16 @@
     </head>
     
     <body>
-    
-    
+
+        <p>The stock symbol is:  <?php      $stock = lookup($_POST["symbol"]) ;// not sure if I need this here
+         echo($stock["symbol"]. '<br/> The stock price is:  ' . $stock["price"] . '<br/> The stock name is:  '. $stock["name"] );
+         
+         
+         ?> </p>
+        
+
+    </body>
+
+
+</html>
 
