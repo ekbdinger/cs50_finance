@@ -31,10 +31,8 @@
     
     <body>
 
-        <p>The stock symbol is:  <?php      $stock = lookup($_POST["symbol"]) ;// not sure if I need this here
+        <p>The stock symbol is:  <?php  
          echo($stock["symbol"]. '<br/> The stock price is:  ' . $stock["price"] . '<br/> The stock name is:  '. $stock["name"] );
-         
-         
          ?> </p>
         
 
